@@ -40,7 +40,7 @@ DNS management is handled by Amazon Route 53, providing a reliable and scalable 
 
 ## Conclusion
 
-This architecture aims to create a resilient and scalable e-commerce system by leveraging various AWS services. Each component plays a crucial role in ensuring optimal performance, security, and user experience. Feel free to explore specific folders in the repository for detailed information on each aspect of the system.
+This architecture aims to create a resilient and scalable e-commerce system by leveraging various AWS services. Each component plays a crucial role in ensuring optimal performance, security, and user experience. Feel free to explore specific AWS Services for detailed information on each aspect of the system.
 - **Performance:** Optimized for fast and responsive user experience ⚡️
 - **Reliability:** Designed for high availability and fault tolerance 
 - **Cost-efficiency:** Leverages AWS services for optimized cost management 
