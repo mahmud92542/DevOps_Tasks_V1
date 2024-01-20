@@ -9,10 +9,6 @@ COPY . /app
 
 RUN ls -la /app
 
-COPY Develop & Deploy a REST API/weatherAPI/requirements.txt /app
-COPY Develop & Deploy a REST API/weatherAPI/app.py /app
-
-
 # Display the current directory contents for debugging
 RUN ls -la /app
 
