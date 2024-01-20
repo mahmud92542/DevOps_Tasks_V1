@@ -1,6 +1,6 @@
 # E-Commerce System Design
 
-Welcome to the E-Commerce System repository! This document provides an overview of the system architecture, detailing the technologies and services used to create a robust and scalable e-commerce platform.
+Welcome to the System Architecture repository! This document provides an overview of the system architecture, detailing the technologies and services used to create a robust and scalable e-commerce platform.
 
 ## System Overview
 
