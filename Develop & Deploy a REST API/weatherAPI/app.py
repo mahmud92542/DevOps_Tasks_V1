@@ -1,9 +1,10 @@
 from flask import Flask, jsonify
-import socket, json, requests, boto3
+import socket, json, requests, boto3, os
 from datetime import datetime
 
 app = Flask(__name__)
 
+DOCKER_IMAGE_VERSION = os.environ.get('DOCKER_IMAGE_VERSION', 'latest')
 
 # AWS region and secret name
 AWS_REGION = 'ap-southeast-1'
@@ -41,7 +42,7 @@ else:
 def weather():
     hostname = socket.gethostname()
     current_datetime = datetime.now().strftime("%y%m%d%H%M")
-    version = "1.0"  # Replace with your application version
+    version = DOCKER_IMAGE_VERSION  # Replace with your application version
 
     # Get weather data for London from the free weather API
     weather_data = get_weather_data("London")
