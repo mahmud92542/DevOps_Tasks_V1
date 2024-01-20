@@ -34,7 +34,6 @@ jobs:
             --file "Develop & Deploy a REST API/weatherAPI/Dockerfile" \
             --build-arg AWS_ACCESS_KEY_ID \
             --build-arg AWS_SECRET_ACCESS_KEY \
-            -t $ECR_REGISTRY/weatherapi:latest \
             --platform linux/amd64,linux/arm64 \
             -o type=registry .
             --no-cache .
