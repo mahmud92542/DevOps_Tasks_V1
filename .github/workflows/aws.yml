@@ -20,7 +20,9 @@ jobs:
       run: |
         # Get the latest version from the Docker Hub repository
         PREVIOUS_VERSION=$(docker pull -q ${{ secrets.DOCKERHUB_USERNAME }}/weatherapi:latest | sed -n 's/Digest: sha256:\(.*\)/\1/p')
-        echo "::set-output name=previous_version::$PREVIOUS_VERSION"
+        # Increment the version number
+        NEW_VERSION=$((PREVIOUS_VERSION + 1))
+        echo "::set-output name=new_version::$NEW_VERSION"
 
     - name: Login to Docker Hub
       id: login-docker-hub
@@ -34,7 +36,7 @@ jobs:
       env:
         DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
         DOCKERHUB_REPOSITORY: weatherapi
-        IMAGE_TAG: ${{ steps.get-previous-version.outputs.previous_version + 1 }}
+        IMAGE_TAG: ${{ steps.get-previous-version.outputs.new_version }}
       run: |
         # Build a docker container and push it to Docker Hub
         docker build --no-cache -t $DOCKERHUB_USERNAME/$DOCKERHUB_REPOSITORY:$IMAGE_TAG -f "Develop & Deploy a REST API/weatherAPI/Dockerfile" .
