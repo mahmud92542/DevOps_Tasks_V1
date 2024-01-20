@@ -40,7 +40,7 @@ else:
 def weather():
     hostname = socket.gethostname()
     current_datetime = datetime.now().strftime("%y%m%d%H%M")
-    version = DOCKER_IMAGE_VERSION  # Replace with your application version
+    version = "1.0"  # Replace with your application version
 
     # Get weather data for London from the free weather API
     weather_data = get_weather_data("London")
