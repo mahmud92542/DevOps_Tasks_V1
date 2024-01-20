@@ -29,15 +29,8 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker buildx create --use
           docker buildx build \
-            --file "Develop & Deploy a REST API/weatherAPI/Dockerfile" \
-            --build-arg AWS_ACCESS_KEY_ID \
-            --build-arg AWS_SECRET_ACCESS_KEY \
-            -t $ECR_REGISTRY/your-flask-app:latest \
-            --platform linux/amd64,linux/arm64 \
-            --push .
-          docker buildx rm
+            --file "Develop & Deploy a REST API/weatherAPI/Dockerfile"
 
       - name: Push Docker image to ECR
         run: |
