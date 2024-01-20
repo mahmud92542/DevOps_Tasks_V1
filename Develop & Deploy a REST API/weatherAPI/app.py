@@ -36,9 +36,6 @@ if secrets is not None:
 else:
     # Handle the case when secrets retrieval fails
     print("Secrets retrieval failed. Ensure that AWS credentials and SecretName are correct.")
-# Replace with your weather API key and URL
-#WEATHER_API_KEY = "5b9c4f40a61783899bdbaa014ededc29"
-#WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather?q=Dhaka,uk&APPID=5b9c4f40a61783899bdbaa014ededc29"
 
 @app.route('/api/weather')
 def weather():
