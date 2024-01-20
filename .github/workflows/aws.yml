@@ -34,3 +34,4 @@ jobs:
         echo "Pushing image to Docker Hub..."
         docker push $DOCKERHUB_USERNAME/$DOCKERHUB_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$DOCKERHUB_USERNAME/$DOCKERHUB_REPOSITORY:$IMAGE_TAG"
+        
