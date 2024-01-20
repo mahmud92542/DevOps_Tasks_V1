@@ -62,7 +62,7 @@ The CI/CD pipeline automatically builds and pushes Docker images to Docker Hub o
 
 ### GitHub Actions Workflow
 
-The CI/CD workflow is defined in `.github/workflows/aws.yml`. It includes the following steps:
+The CI/CD workflow is defined in `.github/workflows/docker-build.yml`. It includes the following steps:
 
 1. **Checkout Code**: Checks out the source code from the repository.
 2. **Get Previous Version**: Retrieves the previous Docker image version from Docker Hub.
