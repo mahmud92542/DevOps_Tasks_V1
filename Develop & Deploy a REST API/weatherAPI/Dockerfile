@@ -5,8 +5,8 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY requirements.txt /app
-COPY app.py /app
+COPY ./Develop\ \&\ Deploy\ a\ REST\ API/weatherAPI/requirements.txt .
+COPY ./Develop\ \&\ Deploy\ a\ REST\ API/weatherAPI/app.py .
 
 RUN ls -la /app
 
