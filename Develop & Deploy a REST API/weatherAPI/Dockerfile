@@ -18,7 +18,7 @@ ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+RUN pip install -r Develop & Deploy a REST API/weatherAPI/requirements.txt
 
 # Expose port 5000 for Flask app
 EXPOSE 5000
