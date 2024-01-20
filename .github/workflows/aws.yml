@@ -1,12 +1,15 @@
----
-name: Build and Deploy
 on:
   push:
-    branches:
-      - main
-jobs:
-  build:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+deploy:
+    name: Deploy
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
+    
     steps:
     - name: Checkout
       uses: actions/checkout@v3
@@ -29,7 +32,7 @@ jobs:
         IMAGE_TAG: latest
       run: |
         # Build a docker container and push it to ECR 
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Develop & Deploy a REST API/weatherAPI/Dockerfile
+        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         echo "Pushing image to ECR..."
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
