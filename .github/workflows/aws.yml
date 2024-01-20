@@ -36,7 +36,7 @@ jobs:
             --build-arg AWS_SECRET_ACCESS_KEY \
             -t $ECR_REGISTRY/your-flask-app:latest \
             --platform linux/amd64,linux/arm64 \
-            -o type=registry .
+            --push .
           docker buildx rm
 
       - name: Push Docker image to ECR
