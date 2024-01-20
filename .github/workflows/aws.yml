@@ -1,0 +1,44 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    env:
+      ECR_REGISTRY: ${{ secrets.ECR_REGISTRY }}
+      AWS_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Set AWS credentials as build arguments
+        run: |
+          echo "AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}" >> $GITHUB_ENV
+          echo "AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}" >> $GITHUB_ENV
+
+      - name: Build Docker image
+        run: |
+          docker buildx create --use
+          docker buildx build \
+            --build-arg AWS_ACCESS_KEY_ID \
+            --build-arg AWS_SECRET_ACCESS_KEY \
+            -t $ECR_REGISTRY/your-flask-app:latest \
+            --platform linux/amd64,linux/arm64 \
+            -o type=registry .
+          docker buildx rm
+
+      - name: Push Docker image to ECR
+        run: |
+          aws ecr get-login-password --region $AWS_REGION | docker login -u AWS --password-stdin $ECR_REGISTRY
+          docker push $ECR_REGISTRY/weatherapi:latest
