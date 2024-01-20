@@ -37,6 +37,7 @@ jobs:
             -t $ECR_REGISTRY/weatherapi:latest \
             --platform linux/amd64,linux/arm64 \
             -o type=registry .
+            --no-cache .
           docker buildx rm
 
       - name: Push Docker image to ECR
