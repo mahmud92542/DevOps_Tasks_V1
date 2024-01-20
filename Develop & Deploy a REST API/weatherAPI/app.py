@@ -1,10 +1,8 @@
 from flask import Flask, jsonify
-import socket, json, requests, boto3, os
+import socket, json, requests, boto3
 from datetime import datetime
 
 app = Flask(__name__)
-
-DOCKER_IMAGE_VERSION = os.environ.get('DOCKER_IMAGE_VERSION', 'latest')
 
 # AWS region and secret name
 AWS_REGION = 'ap-southeast-1'
