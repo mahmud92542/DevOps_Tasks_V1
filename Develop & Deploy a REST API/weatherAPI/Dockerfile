@@ -5,8 +5,8 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY Develop & Deploy a REST API/weatherAPI/requirements.txt /app
-COPY Develop & Deploy a REST API/weatherAPI/app.py /app
+COPY /weatherAPI/requirements.txt /app
+COPY /weatherAPI/app.py /app
 
 
 # Display the current directory contents for debugging
