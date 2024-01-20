@@ -35,7 +35,7 @@ jobs:
             --build-arg AWS_ACCESS_KEY_ID \
             --build-arg AWS_SECRET_ACCESS_KEY \
             --platform linux/amd64,linux/arm64 \
-            -t $ECR_REGISTRY/weatherapi:latest
+            -t $ECR_REGISTRY/weatherapi:latest \
             -o type=registry .
             --no-cache .
           docker buildx rm
