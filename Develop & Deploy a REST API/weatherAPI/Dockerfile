@@ -7,6 +7,8 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . /app
 
+RUN ls -la /app
+
 COPY Develop & Deploy a REST API/weatherAPI/requirements.txt /app
 COPY Develop & Deploy a REST API/weatherAPI/app.py /app
 
