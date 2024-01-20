@@ -5,8 +5,10 @@ FROM python:3.8-slim
 WORKDIR /app
 
 # Copy the current directory contents into the container at /app
-COPY /weatherAPI/requirements.txt /app
-COPY /weatherAPI/app.py /app
+COPY . /app
+
+COPY Develop & Deploy a REST API/weatherAPI/requirements.txt /app
+COPY Develop & Deploy a REST API/weatherAPI/app.py /app
 
 
 # Display the current directory contents for debugging
@@ -20,7 +22,7 @@ ENV AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
 
 # Install any needed packages specified in requirements.txt
 RUN pip install --upgrade pip
-RUN pip install -r Develop & Deploy a REST API/weatherAPI/requirements.txt
+RUN pip install -r requirements.txt
 
 # Expose port 5000 for Flask app
 EXPOSE 5000
