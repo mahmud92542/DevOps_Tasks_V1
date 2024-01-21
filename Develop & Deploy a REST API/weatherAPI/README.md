@@ -68,3 +68,4 @@ The CI/CD workflow is defined in `.github/workflows/docker-build.yml`. It includ
 2. **Get Previous Version**: Retrieves the previous Docker image version from Docker Hub.
 3. **Login to Docker Hub**: Authenticates with Docker Hub using Docker Hub credentials.
 4. **Build, Tag, and Push Image**: Builds the Docker image, tags it with the incremented version, and pushes it to Docker Hub.
+5. Docker Hub URL: https://hub.docker.com/repository/docker/mahmudhasan/weatherapi/general
